@@ -1,3 +1,4 @@
+import java.net.URI
 import groovy.lang.Closure
 import groovy.lang.GroovyObject
 import org.gradle.kotlin.dsl.*
@@ -17,6 +18,17 @@ plugins {
     id("com.jfrog.artifactory") version "4.7.3"
     id("org.owasp.dependencycheck") version "3.2.1"
 }
+
+//Adding this solves the issue
+/*repositories {
+    maven {
+        url = URI("https://my-artifactory-uri")
+        credentials {
+            username = "user"
+            password = "password"
+        }
+    }
+}*/
 
 subprojects {
     group = "com.beltram"
